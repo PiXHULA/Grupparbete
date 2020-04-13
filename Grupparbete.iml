@@ -14,7 +14,9 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="testPersistenceUnit" />
+        </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/web/META-INF/persistence.xml" />
       </configuration>
@@ -29,7 +31,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="javaee-api-8.0" level="application" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="JBoss 19.0.0.Final" level="application_server_libraries" />
-    <orderEntry type="library" exported="" name="h2-1.4.200" level="project" />
-    <orderEntry type="library" exported="" name="eclipselink-2.7.6" level="project" />
+    <orderEntry type="library" name="eclipselink-2.7.6" level="project" />
   </component>
 </module>

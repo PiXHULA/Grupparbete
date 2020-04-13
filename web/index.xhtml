@@ -5,7 +5,19 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
-      <h:outputLabel value="Hello, world"/>
-   </f:view>
+<h:body>
+
+    <h2>
+        <h:outputText value="Webshop"></h:outputText>
+    </h2>
+
+    <h:form>
+        <h:inputText value="UserName"></h:inputText><br/>
+        <h:inputSecret value="Password"></h:inputSecret><br/>
+        <h:commandButton value="Log in" action="Customer"></h:commandButton>
+        <h:commandButton value="Register" action="Register"></h:commandButton>
+    </h:form>
+
+</h:body>
+
 </html>
