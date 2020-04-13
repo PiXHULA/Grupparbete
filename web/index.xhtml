@@ -14,7 +14,7 @@
     <h:form>
         <h:inputText value="#{userModel.nameInput}"></h:inputText><br/>
         <h:inputSecret value="#{userModel.pwInput}"></h:inputSecret><br/>
-        <h:commandButton value="Log in" action="#{userModel.loginValidate}"></h:commandButton> <!--Kalla på en metod som kollar User/Password > userRole -->
+        <h:commandButton value="Log in" action="#{userModel.loginValidate}"></h:commandButton> <!--Kalla på en metod som kollar Model.User/Password > userRole -->
         <h:commandButton value="Register" action="Registrate"></h:commandButton><br/>
         <h:outputText value="#{userModel.errorMessage}"></h:outputText>
     </h:form>

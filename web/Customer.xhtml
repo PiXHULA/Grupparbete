@@ -11,9 +11,24 @@
     </h2>
     <h:form>
         <h:inputText value="#{chipsModel.input}"></h:inputText> <!-- Metod för att hämta in user input-->
-        <h:commandButton action="#{chipsModel.isThisTheChip}" value="Search"></h:commandButton>
+        <h:commandButton action="#{searchController.clear}" value="Search"></h:commandButton>
         <h:outputText value="#{chipsModel.output}"></h:outputText> <!-- Metod för att visa sökresultat -->
-        <h:dataTable>
+        <h:dataTable value="#{chipsModel.chipsList}" var="chips" border="8" cellpadding="10" bgcolor="lightblue">
+            <f:facet name="header">Chips</f:facet>
+
+            <h:column>
+                <f:facet name="header">Brand</f:facet>
+                <h:outputText value="#{chips.brand}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Flavor</f:facet>
+                <h:outputText value="#{chips.flavor}"></h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                <h:outputText value="#{chips.price}"></h:outputText>
+            </h:column>
+
 
         </h:dataTable>
 
