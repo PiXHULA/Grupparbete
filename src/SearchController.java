@@ -8,6 +8,5 @@ import java.io.Serializable;
 @Named
 @SessionScoped
 public class SearchController implements Serializable {
-    
 
 }

@@ -10,7 +10,9 @@
         <h:outputText value="Customer page :)"></h:outputText>
     </h2>
     <h:form>
-        <h:inputText value="Search"></h:inputText>
+        <h:inputText value="#{chipsModel.input}"></h:inputText> <!-- Metod för att hämta in user input-->
+        <h:commandButton action="#{chipsModel.isThisTheChip}" value="Search"></h:commandButton>
+        <h:outputText value="#{chipsModel.output}"></h:outputText> <!-- Metod för att visa sökresultat -->
         <h:dataTable>
 
         </h:dataTable>
