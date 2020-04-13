@@ -12,11 +12,13 @@
     </h2>
 
     <h:form>
-        <h:inputText value="UserName"></h:inputText><br/>
-        <h:inputSecret value="Password"></h:inputSecret><br/>
-        <h:commandButton value="Log in" action="Customer"></h:commandButton> <!--Kalla på en metod som kollar User/Password > userRole -->
-        <h:commandButton value="Register" action="Register"></h:commandButton>
+        <h:inputText value="#{userModel.nameInput}"></h:inputText><br/>
+        <h:inputSecret value="#{userModel.pwInput}"></h:inputSecret><br/>
+        <h:commandButton value="Log in" action="#{userModel.loginValidate}"></h:commandButton> <!--Kalla på en metod som kollar User/Password > userRole -->
+        <h:commandButton value="Register" action="Registrate"></h:commandButton><br/>
+        <h:outputText value="#{userModel.errorMessage}"></h:outputText>
     </h:form>
+
 
 </h:body>
 

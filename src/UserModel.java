@@ -8,7 +8,7 @@ import java.util.List;
 @Named
 @SessionScoped
 public class UserModel implements Serializable {
-    private String nameInput,pwInput,output;
+    private String nameInput,pwInput,output, errorMessage;
     @OneToMany
     private List<User> userList = new ArrayList<>();
 
@@ -26,6 +26,11 @@ public class UserModel implements Serializable {
         userList.add(new User("test2","test2",2)); //Super kund
     }
 
+    public String createUser(){
+        userList.add(new User(nameInput,pwInput));
+        return "index";
+    }
+
     public String loginValidate(){
         populate();
         for(User user : userList){
@@ -34,9 +39,14 @@ public class UserModel implements Serializable {
                 return checkUserRole(user);
             }
         }
-        return output = "Nånting";
+        output = null;
+        sendErrorMsg();
+        return output;
     }
-    //LUNCH NU 12:40
+
+    private void sendErrorMsg() {
+        errorMessage = "Wrong username or password, try again";
+    }
 
     private String checkUserRole(User user) {
         if (user.getUserRole() < 3){
@@ -45,6 +55,13 @@ public class UserModel implements Serializable {
             return "Admin";
     }
 
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
 
     public String getNameInput() {
         return nameInput;
@@ -60,5 +77,11 @@ public class UserModel implements Serializable {
 
     public void setPwInput(String pwInput) {
         this.pwInput = pwInput;
+    }
+
+
+    public List<User> getUserList() {
+        populate(); //Remove when connected to database
+        return userList;
     }
 }

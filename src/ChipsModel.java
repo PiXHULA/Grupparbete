@@ -28,7 +28,7 @@ public class ChipsModel implements Serializable {
         chipsList.add(new Chips("Lazy", "Original", 5000));
         chipsList.add(new Chips("OLW", "Original", 5000));
         chipsList.add(new Chips("Estrella", "Original", 5000));
-        chipsList.add(new Chips("Dotidos", "Original", 5000));
+        chipsList.add(new Chips("Dotidos", "Original", 500000000));
     }
 
     public void isThisTheChip(){
