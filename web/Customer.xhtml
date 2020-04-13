@@ -5,15 +5,20 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <h:outputStylesheet name="Style.css"/>
+</h:head>
+
 <h:body>
     <h2>
         <h:outputText value="Customer page :)"></h:outputText>
     </h2>
     <h:form>
         <h:inputText value="#{chipsModel.input}"></h:inputText> <!-- Metod för att hämta in user input-->
-        <h:commandButton action="#{searchController.clear}" value="Search"></h:commandButton>
+        <h:commandButton value="Search"></h:commandButton>
         <h:outputText value="#{chipsModel.output}"></h:outputText> <!-- Metod för att visa sökresultat -->
-        <h:dataTable value="#{chipsModel.chipsList}" var="chips" border="8" cellpadding="10" bgcolor="lightblue">
+        <h:dataTable value="#{chipsModel.chipsList}" var="chips" styleClass="chipsList" >
             <f:facet name="header">Chips</f:facet>
 
             <h:column>

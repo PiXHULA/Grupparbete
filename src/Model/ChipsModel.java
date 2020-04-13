@@ -1,6 +1,5 @@
 package Model;
 
-import Model.Chips;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;

@@ -1,7 +1,5 @@
 package Model;
 
-import Model.User;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
