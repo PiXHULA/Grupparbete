@@ -32,10 +32,6 @@ public class User implements Serializable {
         this.userRole = userRole;
     }
 
-    public String getUserRoleName(){
-        userRoleName = this.userRole.getRoleNameEnum();
-        return userRoleName;
-    }
 
     public String getName() {
         return name;
@@ -60,5 +56,14 @@ public class User implements Serializable {
     public void setUserRole(UserRoles userRole) {
         this.userRole = userRole;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", userRoleName='" + this.userRole.getRoleNameEnum() + '\'' +
+                '}';
+    }
+
 
 }

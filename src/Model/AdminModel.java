@@ -22,12 +22,12 @@ public class AdminModel implements Serializable {
     }
 
 
-    public void showCostumers () {
-        userList = userList.stream().filter(user -> user.getUserRole().getUserRoleEnum()<3).collect(Collectors.toList());
+    public void showCostumers() {
+        userList = userList.stream().filter(user -> user.getUserRole().getUserRoleEnum() < 3).collect(Collectors.toList());
     }
 
-    public String goToCostumerProfile(String customerName){
-        this.userName=customerName;
+    public String goToCostumerProfile(String customerName) {
+        this.userName = customerName;
         return "Costumer_Profile";
     }
 

@@ -8,6 +8,13 @@
 <h:body>
 
     <h:outputText value="#{adminModel.userName}"> </h:outputText>
+    <h:form>
+        <h:dataTable value="#{purchaseModel.purchaseMap}" var="purchase">
+            <h:column>
+                <h:outputText value="#{purchase}"> </h:outputText>
+            </h:column>
+        </h:dataTable>
+    </h:form>
 
 </h:body>
 </html>

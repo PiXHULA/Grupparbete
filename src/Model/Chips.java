@@ -48,5 +48,12 @@ public class Chips implements Serializable {
         this.price = price;
     }
 
-
+    @Override
+    public String toString() {
+        return "Chips{" +
+                "brand='" + brand + '\'' +
+                ", flavor='" + flavor + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
