@@ -23,13 +23,12 @@ public class ChipsModel implements Serializable {
         loadChipsList();
     }
 
-
     public List<Chips> getChipsList() {
         return chipsList;
     }
 
     public void getChips(String input) {
-        output = "Chip not found";
+        output = input + " not found";
         for (Chips c : chipsList) {
             if (c.getBrand().equalsIgnoreCase(input)) {
                 output = c.getBrand();

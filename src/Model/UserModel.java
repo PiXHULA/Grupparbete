@@ -11,6 +11,7 @@ import java.util.List;
 @Named
 @SessionScoped
 public class UserModel implements Serializable {
+
     private String nameInput, pwInput, output, errorMessage;
     @OneToMany
     private List<User> userList = new ArrayList<>();
@@ -21,17 +22,18 @@ public class UserModel implements Serializable {
     }
 
     public void populate() {
-        userList.add(new User("Wilhelm", "Hattenbach", 3)); //Admin
-        userList.add(new User("Cornelia", "Persson", 3)); //Admin
-        userList.add(new User("Linus", "Svahn", 3)); //Admin
-        userList.add(new User("Joakim", "Önnhage", 3)); //Admin
-        userList.add(new User("Atef", "Sendesni", 3)); //Admin
-        userList.add(new User("Kening", "Fohlin", 1)); //Admin / Overlord
-        userList.add(new User("Victor", "Olofsson", 3)); //Admin
-        userList.add(new User("Emmy", "De Stefano", 3)); //Admin
-        userList.add(new User("Simon", "Wildbore", 3)); //Admin
+        userList.add(new User("Wilhelm", "Hattenbach", UserRoles.ADMIN)); //Admin
+        userList.add(new User("Cornelia", "Persson", UserRoles.ADMIN)); //Admin
+        userList.add(new User("Linus", "Svahn", UserRoles.ADMIN)); //Admin
+        userList.add(new User("Joakim", "Önnhage", UserRoles.ADMIN)); //Admin
+        userList.add(new User("Atef", "Sendesni", UserRoles.ADMIN)); //Admin
+        userList.add(new User("Kening", "Fohlin", UserRoles.ADMIN)); //Admin / Overlord
+        userList.add(new User("Victor", "Olofsson", UserRoles.ADMIN)); //Admin
+        userList.add(new User("Emmy", "De Stefano", UserRoles.ADMIN)); //Admin
+        userList.add(new User("Simon", "Wildbore", UserRoles.ADMIN)); //Admin
         userList.add(new User("test", "test")); //Vanlig kund
-        userList.add(new User("test2", "test2", 2)); //Super kund
+        userList.add(new User("test2", "test2", UserRoles.SUPER_CUSTOMER)); //Super kund
+        userList.add(new User("KUNDENS", "test")); //Vanlig kund
     }
 
     public String createUser() {
@@ -57,7 +59,7 @@ public class UserModel implements Serializable {
     }
 
     private String checkUserRole(User user) {
-        if (user.getUserRole() < 3) {
+        if (user.getUserRole().equals(UserRoles.NORMAL_CUSTOMER) || user.getUserRole().equals(UserRoles.SUPER_CUSTOMER)) {
             return "Customer";
         } else
             return "Admin";
@@ -87,9 +89,8 @@ public class UserModel implements Serializable {
         this.pwInput = pwInput;
     }
 
-
     public List<User> getUserList() {
-        // populate(); //Remove when connected to database
+         populate(); //Remove when connected to database
         return userList;
     }
 }

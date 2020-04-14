@@ -1,10 +1,8 @@
 package Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class User implements Serializable {
@@ -13,26 +11,31 @@ public class User implements Serializable {
     private Long id;
     private String name;
     private String password;
-    private int userRole;
+    private UserRoles userRole;
+    private String userRoleName;
+
+    @OneToMany
+    private List<Purchase> purchaseList;
 
     public User() {
     }
 
-
-
     public User(String name, String password) {
         this.name = name;
         this.password = password;
-        this.userRole = 1;
+        this.userRole = UserRoles.NORMAL_CUSTOMER;
     }
-    public User(String name, String password, int userRole) {
+
+    public User(String name, String password, UserRoles userRole) {
         this.name = name;
         this.password = password;
         this.userRole = userRole;
     }
 
-
-
+    public String getUserRoleName(){
+        userRoleName = this.userRole.getRoleNameEnum();
+        return userRoleName;
+    }
 
     public String getName() {
         return name;
@@ -50,13 +53,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public int getUserRole() {
+    public UserRoles getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(int userRole) {
+    public void setUserRole(UserRoles userRole) {
         this.userRole = userRole;
     }
-
 
 }
