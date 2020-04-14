@@ -21,7 +21,8 @@
             </h:column>
         </h:dataTable>
         <h:outputText value="#{cartModel.totalPrice}"/>
-        <h:commandButton value="Confirm order" action="#{purchaseModel.confirmOrder(userModel.currentUser, cartModel.cartList)}"/>
+        <h:commandButton value="Confirm order"
+                         action="#{purchaseModel.confirmOrder(userModel.currentUser, cartModel.cartList)}"/>
         <h:outputText value="#{purchaseModel.confirmPurchase}"/>
     </h:form>
 </h:body>

@@ -4,46 +4,37 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Collection;
 
 @Named
 @SessionScoped
 public class AdminModel implements Serializable {
-
-    UserModel userModel = new UserModel();
-    List<User> userList = userModel.getUserList();
-    private String userName;
+    private MockDatabase database;
+    private User toView;
 
     @PostConstruct
     public void init() {
-        showCostumers();
+        database = MockDatabase.getSingleton();
     }
 
-
-    public void showCostumers() {
-        userList = userList.stream().filter(user -> user.getUserRole().getUserRoleEnum() < 3).collect(Collectors.toList());
+    public Collection<User> getCustomers() {
+        return database.getCustomers();
     }
 
-    public String goToCostumerProfile(String customerName) {
-        this.userName = customerName;
-        return "Costumer_Profile";
+    public String goToCustomerProfile(User customer) {
+        this.toView = customer;
+        return "customer-profile";
     }
 
-    public String getUserName() {
-        return userName;
+    public User getToView() {
+        return toView;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setToView(User toView) {
+        this.toView = toView;
     }
 
-    public List<User> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public Collection<User> getUserList() {
+        return database.getAllUsers();
     }
 }

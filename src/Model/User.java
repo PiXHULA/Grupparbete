@@ -12,7 +12,6 @@ public class User implements Serializable {
     private String name;
     private String password;
     private UserRoles userRole;
-    private String userRoleName;
 
     @OneToMany
     private List<Purchase> purchaseList;
@@ -31,7 +30,6 @@ public class User implements Serializable {
         this.password = password;
         this.userRole = userRole;
     }
-
 
     public String getName() {
         return name;
@@ -61,9 +59,16 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
-                ", userRoleName='" + this.userRole.getRoleNameEnum() + '\'' +
+                ", userRoleName='" + this.userRole.getRoleName() + '\'' +
                 '}';
     }
 
+    public boolean isAdmin() {
+        return userRole == UserRoles.ADMIN;
+    }
+
+    public boolean isCustomer() {
+        return userRole == UserRoles.NORMAL_CUSTOMER || userRole == UserRoles.SUPER_CUSTOMER;
+    }
 
 }

@@ -7,7 +7,9 @@ import javax.inject.Named;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Named
 @SessionScoped
@@ -15,24 +17,21 @@ public class ChipsModel implements Serializable {
     private String input;
     private String output;
     private Chips searchResult;
-
-    @OneToMany
-    private List<Chips> chipsList = new ArrayList<>();
-
+    private MockDatabase database;
 
     @PostConstruct
     public void init() {
-        loadChipsList();
+        database = MockDatabase.getSingleton();
     }
 
-    public List<Chips> getChipsList() {
-        return chipsList;
+    public Collection<Chips> getChipsList() {
+        return database.getChips();
     }
 
     public void getChips(String input) {
         output = input + " not found";
         searchResult = null;
-        for (Chips c : chipsList) {
+        for (Chips c : getChipsList()) {
             if (c.getBrand().equalsIgnoreCase(input)) {
                 output = c.getBrand();
                 searchResult = c;
@@ -46,14 +45,6 @@ public class ChipsModel implements Serializable {
 
     public void setSearchResult(Chips searchResult) {
         this.searchResult = searchResult;
-    }
-
-    public void loadChipsList() {
-        chipsList.add(new Chips("Pringles", "Original", 5000));
-        chipsList.add(new Chips("Lazy", "Original", 5000));
-        chipsList.add(new Chips("OLW", "Original", 5000));
-        chipsList.add(new Chips("Estrella", "Original", 5000));
-        chipsList.add(new Chips("Dotidos", "Original", 500000000));
     }
 
     public void isThisTheChip() {

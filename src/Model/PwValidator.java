@@ -8,11 +8,10 @@ import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
 @FacesValidator("pwValidator")
-public class PwValidator implements Validator {
+public class PwValidator implements Validator<String> {
     @Override
-    public void validate(FacesContext facesContext, UIComponent uiComponent, Object value) throws ValidatorException {
-        String pass = (String) value;
-        char[] chars = pass.toCharArray();
+    public void validate(FacesContext facesContext, UIComponent uiComponent, String value) throws ValidatorException {
+        char[] chars = value.toCharArray();
         boolean text = false;
         boolean numbers = false;
 
@@ -24,9 +23,10 @@ public class PwValidator implements Validator {
                 numbers = true;
             }
         }
-            if (!text || !numbers) {
-                String messageText = "Both digits and letters needed";
-                throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, messageText, messageText));
-            }
+
+        if (!text || !numbers) {
+            String messageText = "Both digits and letters needed";
+            throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, messageText, messageText));
+        }
     }
 }

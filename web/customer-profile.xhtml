@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:body>
 
-    <h:outputText value="#{adminModel.userName}"> </h:outputText>
+    <h:outputText value="#{adminModel.getToView().name}"> </h:outputText>
     <h:form>
         <h:dataTable value="#{purchaseModel.purchaseMap}" var="purchase">
             <h:column>

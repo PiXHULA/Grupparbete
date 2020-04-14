@@ -9,10 +9,7 @@ import java.util.List;
 @Named
 @SessionScoped
 public class CartModel implements Serializable {
-
     private List<Chips> cartList = new ArrayList<>();
-    private int totalPrice;
-
 
     public void setCartList(List<Chips> cartList) {
         this.cartList = cartList;
@@ -23,23 +20,15 @@ public class CartModel implements Serializable {
     }
 
     public int getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
+        return calculate();
     }
 
     public void addToCart(Chips chips) {
         if (chips != null)
             cartList.add(chips);
-        calculate();
     }
 
-    public void calculate() {
-        totalPrice = 0;
-        for (Chips c : cartList) {
-            totalPrice += c.getPrice();
-        }
+    public int calculate() {
+        return getCartList().stream().mapToInt(Chips::getPrice).sum();
     }
 }

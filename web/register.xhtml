@@ -8,20 +8,20 @@
 <h:head>
     <h:outputStylesheet name="Style.css"/>
 </h:head>
-    <h:body>
+<h:body>
     <h:outputLabel value="Hello, world"/>
-        <h:form>
-            <h:outputText>Create your account</h:outputText>
+    <h:form>
+        <h:outputText>Create your account</h:outputText>
 
-            <h:inputText value="#{userModel.nameInput}">
+        <h:inputText value="#{userModel.nameInput}">
             <f:validator validatorId="usernameValidator"/>
-            </h:inputText>
+        </h:inputText>
 
-            <h:inputSecret value="#{userModel.pwInput}">
+        <h:inputSecret value="#{userModel.pwInput}">
             <f:validator validatorId="pwValidator"/>
-            </h:inputSecret>
-            <h:commandButton action="#{userModel.createUser}" value="Create account"></h:commandButton>
-        </h:form>
-    </h:body>
+        </h:inputSecret>
+        <h:commandButton action="#{userModel.createUser}" value="Create account"/>
+    </h:form>
+</h:body>
 
 </html>

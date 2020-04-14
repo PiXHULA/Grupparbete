@@ -10,7 +10,6 @@ import java.util.Map;
 @Named
 @SessionScoped
 public class PurchaseModel implements Serializable {
-    UserModel userModel = new UserModel();
     ChipsModel chipsModel = new ChipsModel();
     Map<User, List<Chips>> purchaseMap;
     private String confirmPurchase = "";
@@ -23,10 +22,9 @@ public class PurchaseModel implements Serializable {
         this.purchaseMap = purchaseMap;
     }
 
-    public void confirmOrder(User user, List<Chips> chipsList){
-        Map<User, List<Chips>> purchaseMap2 = new HashMap<>();
-        purchaseMap2.put(user,chipsList);
-        setPurchaseMap(purchaseMap2);
+    public void confirmOrder(User user, List<Chips> chipsList) {
+        purchaseMap = new HashMap<>();
+        purchaseMap.put(user, chipsList);
         setConfirmPurchase("Order confirmed!");
     }
 
@@ -41,6 +39,6 @@ public class PurchaseModel implements Serializable {
     @Override
     public String toString() {
         return "PurchaseModel " +
-                "chipsModel=" + chipsModel ;
+                "chipsModel=" + chipsModel;
     }
 }

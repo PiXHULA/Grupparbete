@@ -1,7 +1,7 @@
 package Model;
 
 public enum UserRoles {
-    NORMAL_CUSTOMER(1,"Kund"), SUPER_CUSTOMER(2, "Premiumkund"), ADMIN(3, "Admin");
+    NORMAL_CUSTOMER(1, "Kund"), SUPER_CUSTOMER(2, "Premiumkund"), ADMIN(3, "Admin");
 
     private final int userRole;
     private final String roleName;
@@ -11,11 +11,11 @@ public enum UserRoles {
         this.roleName = roleName;
     }
 
-    public int getUserRoleEnum() {
+    public int getRoleInt() {
         return userRole;
     }
 
-    public String getRoleNameEnum() {
+    public String getRoleName() {
         return roleName;
     }
 }
