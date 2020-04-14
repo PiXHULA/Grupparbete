@@ -13,6 +13,7 @@ public class PurchaseModel implements Serializable {
     UserModel userModel = new UserModel();
     ChipsModel chipsModel = new ChipsModel();
     Map<User, List<Chips>> purchaseMap;
+    private String confirmPurchase = "";
 
     public Map<User, List<Chips>> getPurchaseMap() {
         return purchaseMap;
@@ -22,11 +23,19 @@ public class PurchaseModel implements Serializable {
         this.purchaseMap = purchaseMap;
     }
 
-    public String confirmOrder(User user, List<Chips> chipsList){
+    public void confirmOrder(User user, List<Chips> chipsList){
         Map<User, List<Chips>> purchaseMap2 = new HashMap<>();
         purchaseMap2.put(user,chipsList);
         setPurchaseMap(purchaseMap2);
-        return "receipt";
+        setConfirmPurchase("Order confirmed!");
+    }
+
+    public String getConfirmPurchase() {
+        return confirmPurchase;
+    }
+
+    public void setConfirmPurchase(String confirmPurchase) {
+        this.confirmPurchase = confirmPurchase;
     }
 
     @Override

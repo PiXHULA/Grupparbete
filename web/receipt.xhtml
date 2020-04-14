@@ -7,18 +7,22 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:body>
     <h1>Your receipt</h1>
-    <h:outputText value="Here's your receipt, #{userModel.currentUser.name}"/>
-    <h:dataTable value="#{cartModel.cartList}" var="item">
-        <h:column>
-            <h:outputText value="#{item.brand}"/>
-        </h:column>
-        <h:column>
-            <h:outputText value="#{item.price}"/>
-        </h:column>
-        <h:column>
-            <h:outputText value="#{item.flavor}"/>
-        </h:column>
-    </h:dataTable>
-    <h:outputText value="#{cartModel.totalPrice}"/>
+    <h:form>
+        <h:outputText value="Here's your receipt, #{userModel.currentUser.name}"/>
+        <h:dataTable value="#{cartModel.cartList}" var="item">
+            <h:column>
+                <h:outputText value="#{item.brand}"/>
+            </h:column>
+            <h:column>
+                <h:outputText value="#{item.price}"/>
+            </h:column>
+            <h:column>
+                <h:outputText value="#{item.flavor}"/>
+            </h:column>
+        </h:dataTable>
+        <h:outputText value="#{cartModel.totalPrice}"/>
+        <h:commandButton value="Confirm order" action="#{purchaseModel.confirmOrder(userModel.currentUser, cartModel.cartList)}"/>
+        <h:outputText value="#{purchaseModel.confirmPurchase}"/>
+    </h:form>
 </h:body>
 </html>
