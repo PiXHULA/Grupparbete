@@ -17,7 +17,10 @@
     <h:form>
         <h:inputText value="#{chipsModel.input}"> </h:inputText> <!-- Metod för att hämta in user input-->
         <h:commandButton value="Search" action="#{chipsModel.isThisTheChip}"> </h:commandButton>
-        <h:outputText value="#{chipsModel.output}"> </h:outputText> <!-- Metod för att visa sökresultat -->
+        <h:outputText value="#{chipsModel.output}">
+        </h:outputText>
+        <h:commandButton value="Add to cart" action="#{cartModel.addToCart(chipsModel.searchResult)}"> </h:commandButton>
+        <!-- Metod för att visa sökresultat -->
         <h:dataTable value="#{chipsModel.chipsList}" var="chips" styleClass="chipsList" >
             <f:facet name="header">Chips</f:facet>
 
@@ -33,7 +36,13 @@
                 <f:facet name="header">Price</f:facet>
                 <h:outputText value="#{chips.price}"></h:outputText>
             </h:column>
+            <h:column>
+                <h:commandButton value="Add to cart" action="#{cartModel.addToCart(chips)}"> </h:commandButton>
+            </h:column>
         </h:dataTable>
+
+        <h:outputText value="#{cartModel.cartList}"/>
+        <h:commandButton action="receipt" value="Checkout"/>
 
     </h:form>
 

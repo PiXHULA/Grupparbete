@@ -10,39 +10,36 @@
 
 <h:head>
     <h:outputStylesheet name="Style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "/>
 </h:head>
 
 <h:body>
-
-    <h:panelGroup layout="block" id="container">
-
-        <h2 class="homePageTitle">
-            <h:outputText value="We Love Chips"></h:outputText><br/>
-
-            <h:graphicImage name="Images/chips.gif" styleClass="gif"></h:graphicImage>
-        </h2>
-
-        <h:panelGroup layout="block" id="form">
-            <h:form>
-                <h:inputText value="#{userModel.nameInput}">
-                    <f:passThroughAttribute name="placeholder" value="user name"/>
-                </h:inputText><br/><br/>
-                <h:inputSecret value="#{userModel.pwInput}">
-                    <f:passThroughAttribute name="placeholder" value="password"/>
-                </h:inputSecret><br/><br/>
-                <h:commandButton value="Log in"
-                                 action="#{userModel.loginValidate}"></h:commandButton> <!--Kalla på en metod som kollar Model.User/Password > userRole -->
-                <h:commandButton value="Register" action="Registrate"></h:commandButton><br/>
-                <h:outputText value="#{userModel.errorMessage}"></h:outputText>
-            </h:form>
-
-
-        </h:panelGroup>
-
-
-    </h:panelGroup>
-
-
+    <div class="container" id="container" style="height: 100%">
+        <div class="justify-content-center align-items-center">
+            <div class="align-items-center">
+                <h2 class="homePageTitle display-1" style="padding: 10vh 0 5vh 0">
+                    <h:outputText value="We Love Chips"></h:outputText>
+                </h2>
+                    <h:graphicImage name="Images/chips.gif"></h:graphicImage>
+            </div>
+            <div class="col-4">
+                <div class="card-body">
+                    <h:form>
+                        <div class="form-group">
+                            <h:outputText value="Username"/>
+                            <h:inputText value="#{userModel.nameInput}" styleClass="form-control"/>
+                            <h:outputText value="Password"/>
+                            <h:inputSecret value="#{userModel.pwInput}" styleClass="form-control"/><br/>
+                            <h:commandButton value="Log in"
+                                             action="#{userModel.loginValidate}" styleClass="btn btn-success"></h:commandButton> <!--Kalla på en metod som kollar Model.User/Password > userRole -->
+                            <h:commandButton value="Register" action="Registrate" styleClass="btn btn-secondary"></h:commandButton><br/>
+                            <h:outputText value="#{userModel.errorMessage}"></h:outputText>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
 </h:body>
 
 </html>
