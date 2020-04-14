@@ -16,9 +16,19 @@ public class UserModel implements Serializable {
     @OneToMany
     private List<User> userList = new ArrayList<>();
 
+    private User currentUser;
+
     @PostConstruct
     public void init() {  // körs bara en gång när sidan laddas
         populate();
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
     }
 
     public void populate() {
@@ -46,6 +56,7 @@ public class UserModel implements Serializable {
         for (User user : userList) {
             if (user.getName().equalsIgnoreCase(nameInput) &&
                     user.getPassword().equals(pwInput)) {
+                this.currentUser = user;
                 return checkUserRole(user);
             }
         }

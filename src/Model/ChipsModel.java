@@ -12,7 +12,9 @@ import java.util.List;
 @Named
 @SessionScoped
 public class ChipsModel implements Serializable {
-    private String input, output;
+    private String input;
+    private String output;
+    private Chips searchResult;
 
     @OneToMany
     private List<Chips> chipsList = new ArrayList<>();
@@ -29,11 +31,21 @@ public class ChipsModel implements Serializable {
 
     public void getChips(String input) {
         output = input + " not found";
+        searchResult = null;
         for (Chips c : chipsList) {
             if (c.getBrand().equalsIgnoreCase(input)) {
                 output = c.getBrand();
+                searchResult = c;
             }
         }
+    }
+
+    public Chips getSearchResult() {
+        return searchResult;
+    }
+
+    public void setSearchResult(Chips searchResult) {
+        this.searchResult = searchResult;
     }
 
     public void loadChipsList() {

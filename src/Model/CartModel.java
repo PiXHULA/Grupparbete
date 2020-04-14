@@ -11,6 +11,7 @@ import java.util.List;
 public class CartModel implements Serializable {
 
     private List<Chips> cartList = new ArrayList<>();
+    private int totalPrice;
 
 
     public void setCartList(List<Chips> cartList) {
@@ -21,7 +22,24 @@ public class CartModel implements Serializable {
         return cartList;
     }
 
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public void addToCart(Chips chips) {
-        cartList.add(chips);
+        if (chips != null)
+            cartList.add(chips);
+        calculate();
+    }
+
+    public void calculate() {
+        totalPrice = 0;
+        for (Chips c : cartList) {
+            totalPrice += c.getPrice();
+        }
     }
 }

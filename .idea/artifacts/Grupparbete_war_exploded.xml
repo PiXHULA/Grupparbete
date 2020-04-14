@@ -7,7 +7,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="Grupparbete" />
         </element>
-        <element id="directory" name="lib" />
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="com.h2database:h2:1.4.200" />
+          <element id="library" level="project" name="org.eclipse.persistence:eclipselink:2.7.6" />
+        </element>
       </element>
     </root>
   </artifact>

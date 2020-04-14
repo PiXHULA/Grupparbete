@@ -22,10 +22,11 @@ public class PurchaseModel implements Serializable {
         this.purchaseMap = purchaseMap;
     }
 
-    public void confirmOrder(User user, List<Chips> chipsList){
+    public String confirmOrder(User user, List<Chips> chipsList){
         Map<User, List<Chips>> purchaseMap2 = new HashMap<>();
         purchaseMap2.put(user,chipsList);
         setPurchaseMap(purchaseMap2);
+        return "receipt";
     }
 
     @Override
