@@ -1,38 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-    <h:outputStylesheet library="css" name="styles.css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css "/>
-    <title>Login</title>
-</h:head>
 <h:body>
+
     <h2>
         <h:outputText value="Webshop"></h:outputText>
     </h2>
-    <div class="container">
-        <div class="row justify-content-center align-items-center" style="height: 100vh">
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h:form>
-                            <div class="form-group">
-                                <h:inputText value="#{userModel.nameInput}"></h:inputText><br/>
-                                <h:inputSecret value="#{userModel.pwInput}"></h:inputSecret><br/>
-                                <h:commandButton value="Log in" action="#{userModel.loginValidate}"></h:commandButton> <!--Kalla på en metod som kollar User/Password > userRole -->
-                                <h:commandButton value="Register" action="Registrate"></h:commandButton><br/>
-                                <h:outputText value="#{userModel.errorMessage}"></h:outputText>
-                            </div>
-                        </h:form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <h:form>
+        <h:inputText value="#{userModel.nameInput}"></h:inputText><br/>
+        <h:inputSecret value="#{userModel.pwInput}"></h:inputSecret><br/>
+        <h:commandButton value="Log in" action="#{userModel.loginValidate}"></h:commandButton> <!--Kalla på en metod som kollar User/Password > userRole -->
+        <h:commandButton value="Register" action="Registrate"></h:commandButton><br/>
+        <h:outputText value="#{userModel.errorMessage}"></h:outputText>
+    </h:form>
 
 
 </h:body>
