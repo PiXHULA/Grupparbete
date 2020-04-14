@@ -1,3 +1,8 @@
+package Model;
+
+import Model.User;
+import Model.UserModel;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -12,16 +17,16 @@ public class UserNameValidator implements Validator {
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object value) throws ValidatorException {
         String userInput = (String) value;
         UserModel userModel = new UserModel();
-        boolean userNameOk = true;
+        boolean isUsernameUnique = true;
 
         List<User> userList = userModel.getUserList(); //Lista att kolla mot användare
         for(User user : userList){
             if(user.getName().equalsIgnoreCase(userInput)){
-                userNameOk = false;
+                isUsernameUnique = false;
                 break;
             }
         }
-            if (!userNameOk) {
+            if (!isUsernameUnique) {
                 String messageText = "The username you want to take is already taken";
                 throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, messageText, messageText));
             }

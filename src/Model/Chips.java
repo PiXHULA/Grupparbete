@@ -1,3 +1,5 @@
+package Model;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -46,5 +48,12 @@ public class Chips implements Serializable {
         this.price = price;
     }
 
-
+    @Override
+    public String toString() {
+        return "Chips{" +
+                "brand='" + brand + '\'' +
+                ", flavor='" + flavor + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
