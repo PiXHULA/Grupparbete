@@ -12,16 +12,16 @@ public class UserNameValidator implements Validator {
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object value) throws ValidatorException {
         String userInput = (String) value;
         UserModel userModel = new UserModel();
-        boolean usernameUnique = true;
+        boolean isUsernameUnique = true;
 
         List<User> userList = userModel.getUserList(); //Lista att kolla mot användare
         for(User user : userList){
             if(user.getName().equalsIgnoreCase(userInput)){
-                usernameUnique = false;
+                isUsernameUnique = false;
                 break;
             }
         }
-            if (!usernameUnique) {
+            if (!isUsernameUnique) {
                 String messageText = "The username you want to take is already taken";
                 throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, messageText, messageText));
             }
