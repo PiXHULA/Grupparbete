@@ -1,3 +1,7 @@
+package Model;
+
+
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.persistence.OneToMany;
@@ -8,13 +12,23 @@ import java.util.List;
 @Named
 @SessionScoped
 public class ChipsModel implements Serializable {
-    private String input,output;
+    private String input, output;
 
     @OneToMany
     private List<Chips> chipsList = new ArrayList<>();
 
+
+    @PostConstruct
+    public void init() {
+        loadChipsList();
+    }
+
+
+    public List<Chips> getChipsList() {
+        return chipsList;
+    }
+
     public void getChips(String input) {
-        populate();
         output = "Chip not found";
         for (Chips c : chipsList) {
             if (c.getBrand().equalsIgnoreCase(input)) {
@@ -23,7 +37,7 @@ public class ChipsModel implements Serializable {
         }
     }
 
-    public void populate() {
+    public void loadChipsList() {
         chipsList.add(new Chips("Pringles", "Original", 5000));
         chipsList.add(new Chips("Lazy", "Original", 5000));
         chipsList.add(new Chips("OLW", "Original", 5000));
@@ -31,7 +45,7 @@ public class ChipsModel implements Serializable {
         chipsList.add(new Chips("Dotidos", "Original", 500000000));
     }
 
-    public void isThisTheChip(){
+    public void isThisTheChip() {
         getChips(input);
     }
 
