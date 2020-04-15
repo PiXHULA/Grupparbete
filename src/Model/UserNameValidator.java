@@ -9,7 +9,7 @@ import javax.faces.validator.ValidatorException;
 
 @FacesValidator("usernameValidator")
 public class UserNameValidator implements Validator<String> {
-    private MockDatabase database = MockDatabase.getSingleton();
+    private MockDatabase database = MockDatabase.getInstance();
 
     @Override
     public void validate(FacesContext facesContext, UIComponent uiComponent, String value) throws ValidatorException {

@@ -15,7 +15,7 @@ public class UserModel implements Serializable {
 
     @PostConstruct
     public void init() {  // körs bara en gång när sidan laddas
-        database = MockDatabase.getSingleton();
+        database = MockDatabase.getInstance();
     }
 
     public User getCurrentUser() {

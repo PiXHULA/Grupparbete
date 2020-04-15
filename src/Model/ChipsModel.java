@@ -4,12 +4,8 @@ package Model;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import javax.persistence.OneToMany;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Named
 @SessionScoped
@@ -21,7 +17,7 @@ public class ChipsModel implements Serializable {
 
     @PostConstruct
     public void init() {
-        database = MockDatabase.getSingleton();
+        database = MockDatabase.getInstance();
     }
 
     public Collection<Chips> getChipsList() {

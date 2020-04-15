@@ -1,21 +1,21 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.stream.Collectors;
 
 public class MockDatabase implements Serializable {
     private static MockDatabase singletonDatabase = new MockDatabase();
-    private Collection<Chips> products = new HashSet<>();
-    private Collection<User> users = new HashSet<>();
+    private Collection<Chips> products = new ArrayList<>();
+    private Collection<User> users = new ArrayList<>();
 
     private MockDatabase() {
         populateChips();
         populateUsers();
     }
 
-    public static MockDatabase getSingleton() {
+    public static MockDatabase getInstance() {
         return singletonDatabase;
     }
 

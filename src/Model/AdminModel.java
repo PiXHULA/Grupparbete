@@ -14,7 +14,7 @@ public class AdminModel implements Serializable {
 
     @PostConstruct
     public void init() {
-        database = MockDatabase.getSingleton();
+        database = MockDatabase.getInstance();
     }
 
     public Collection<User> getCustomers() {
