@@ -1,4 +1,7 @@
-package Model;
+package Model.POJO;
+
+import Model.POJO.Chips;
+import Model.User;
 
 import javax.persistence.*;
 import java.io.Serializable;

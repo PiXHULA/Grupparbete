@@ -17,9 +17,9 @@
     <h:panelGroup layout="block" id="container">
 
         <h2 class="homePageTitle">
-            <h:outputText value="We Love Chips"></h:outputText><br/>
+            <h:outputText value="We Love Chips"> </h:outputText><br/>
 
-            <h:graphicImage name="Images/chips.gif" styleClass="gif"></h:graphicImage>
+            <h:graphicImage name="Images/chips.gif" styleClass="gif"> </h:graphicImage>
         </h2>
 
         <h:panelGroup layout="block" id="form">
@@ -31,7 +31,7 @@
                     <f:passThroughAttribute name="placeholder" value="password"/>
                 </h:inputSecret><br/><br/>
                 <h:commandButton value="Log in"
-                                 action="#{userModel.loginValidate}"></h:commandButton> <!--Kalla på en metod som kollar Model.User/Password > userRole -->
+                                 action="#{userModel.loginValidate}"> </h:commandButton> <!--Kalla på en metod som kollar Model.User/Password > userRole -->
                 <h:commandButton value="Register" action="Registrate"></h:commandButton><br/>
                 <h:outputText value="#{userModel.errorMessage}"></h:outputText>
             </h:form>

@@ -1,6 +1,8 @@
 package Model;
 
 
+import Model.POJO.Chips;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;

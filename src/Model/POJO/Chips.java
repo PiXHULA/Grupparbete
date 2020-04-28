@@ -1,4 +1,4 @@
-package Model;
+package Model.POJO;
 
 import javax.persistence.*;
 import java.io.Serializable;

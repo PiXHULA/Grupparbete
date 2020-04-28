@@ -1,5 +1,7 @@
 package Model;
 
+import Model.POJO.Chips;
+
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
